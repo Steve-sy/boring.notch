@@ -599,8 +599,10 @@ struct Media: View {
 
 struct CalendarSettings: View {
     @ObservedObject private var calendarManager = CalendarManager.shared
+    @ObservedObject private var remindersManager = RemindersManager.shared
     @Default(.showCalendar) var showCalendar: Bool
-
+    @Default(.showReminders) var showReminders: Bool
+    
     var body: some View {
         Form {
             if calendarManager.authorizationStatus != .fullAccess {
@@ -615,6 +617,8 @@ struct CalendarSettings: View {
                 }
             } else {
                 Toggle("Show calendar", isOn: $showCalendar)
+                Toggle("Show reminders (beta)", isOn: $showReminders)
+                
                 Section(header: Text("Select Calendars")) {
                     List {
                         ForEach(calendarManager.allCalendars, id: \.id) { calendar in
@@ -636,6 +640,7 @@ struct CalendarSettings: View {
         .onAppear {
             Task {
                 await calendarManager.checkCalendarAuthorization()
+                await remindersManager.requestAccess()
             }
         }
         // Add navigation title if it's missing or adjust as needed

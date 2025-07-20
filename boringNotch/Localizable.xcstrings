@@ -657,6 +657,9 @@
     "No extension installed" : {
 
     },
+    "No time" : {
+
+    },
     "Non-notch display height" : {
 
     },
@@ -776,6 +779,9 @@
     "Remember last tab" : {
 
     },
+    "Reminders" : {
+
+    },
     "Remove" : {
 
     },
@@ -890,6 +896,9 @@
 
     },
     "Show on all displays" : {
+
+    },
+    "Show reminders (beta)" : {
 
     },
     "Slider color" : {

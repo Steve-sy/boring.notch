@@ -56,39 +56,26 @@ class CalendarService: CalendarServiceProviding {
     }
     
     func calendars() async -> [CalendarModel] {
-        var calendars: [EKCalendar] = []
-        
-        for type in [EKEntityType.event, .reminder] where hasAccess(to: type) {
-            calendars.append(contentsOf: store.calendars(for: type))
-        }
-        
-        return calendars.map { CalendarModel(from: $0) }
+        guard hasAccess(to: .event) else { return [] }
+        let eventCalendars = store.calendars(for: .event)
+        return eventCalendars.map { CalendarModel(from: $0) }
     }
     
     func events(from start: Date, to end: Date, calendars ids: [String]) async -> [EventModel] {
         let allCalendars = await self.calendars()
         let filteredCalendars = allCalendars.filter { ids.isEmpty || ids.contains($0.id) }
         let ekCalendars = filteredCalendars.compactMap { calendarModel in
-            store.calendars(for: .event).first { $0.calendarIdentifier == calendarModel.id } ??
-            store.calendars(for: .reminder).first { $0.calendarIdentifier == calendarModel.id }
+            store.calendars(for: .event).first { $0.calendarIdentifier == calendarModel.id }
         }
-        
+
         var events: [EventModel] = []
-        
-        // Fetch regular events
+
         if hasAccess(to: .event) {
-            let eventCalendars = ekCalendars.filter { store.calendars(for: .event).contains($0) }
-            let predicate = store.predicateForEvents(withStart: start, end: end, calendars: eventCalendars)
+            let predicate = store.predicateForEvents(withStart: start, end: end, calendars: ekCalendars)
             let ekEvents = store.events(matching: predicate)
             events.append(contentsOf: ekEvents.compactMap { EventModel(from: $0) })
         }
-        
-        // Fetch reminders
-        if hasAccess(to: .reminder) {
-            let reminderCalendars = ekCalendars.filter { store.calendars(for: .reminder).contains($0) }
-            events.append(contentsOf: await fetchReminders(from: start, to: end, calendars: reminderCalendars))
-        }
-        
+
         return events.sorted { $0.start < $1.start }
     }
     

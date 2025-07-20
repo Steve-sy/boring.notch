@@ -2,11 +2,12 @@
 //  BoringCalendar.swift
 //  boringNotch
 //
-//  Created by Harsh Vardhan  Goswami  on 08/09/24.
+//  Created by Harsh Vardhan  Goswami  on 08/09/24 & updated by Mustafa Ramadan on 20/07/2025
 //
 
 import SwiftUI
 import Defaults
+import EventKit
 
 struct Config: Equatable {
 //    var count: Int = 10  // 3 days past + today + 7 days future
@@ -150,6 +151,7 @@ struct WheelPicker: View {
 struct CalendarView: View {
     @EnvironmentObject var vm: BoringViewModel
     @ObservedObject private var calendarManager = CalendarManager.shared
+    @ObservedObject private var remindersManager = RemindersManager.shared
     @State private var selectedDate = Date()
     
     var body: some View {
@@ -174,26 +176,35 @@ struct CalendarView: View {
                     }
                 }
             }
-            if calendarManager.events.isEmpty {
+            if calendarManager.events.isEmpty && (!Defaults[.showReminders] || remindersManager.reminders.isEmpty) {
                 EmptyEventsView()
             } else {
-                EventListView(events: calendarManager.events)
+                CombinedListView(events: calendarManager.events,)
             }
         }
         .listRowBackground(Color.clear)
         .onChange(of: selectedDate) { _, newDate in
             Task {
                 await calendarManager.updateCurrentDate(newDate)
+                if Defaults[.showReminders] {
+                    await remindersManager.updateSelectedDate(newDate)
+                }
             }
         }
         .onChange(of: vm.notchState) { _, _ in
             Task {
                 await calendarManager.updateCurrentDate(Date.now)
+                if Defaults[.showReminders] {
+                    await remindersManager.updateSelectedDate(Date.now)
+                }
             }
         }
         .onAppear {
             Task {
                 await calendarManager.updateCurrentDate(Date.now)
+                if Defaults[.showReminders] {
+                    await remindersManager.updateSelectedDate(Date.now)
+                }
             }
         }
     }
@@ -227,8 +238,9 @@ struct EventListView: View {
                             } else {
                                 Text("\(events[index].start, style: .time)")
                                 Text("\(events[index].end, style: .time)")
+                                
                             }
-                        }
+                        }.foregroundStyle(.white)
                         .multilineTextAlignment(.trailing)
                         .padding(.bottom, 8)
                         .font(.caption2)
@@ -272,6 +284,29 @@ struct EventListView: View {
         }
         .scrollIndicators(.never)
         .scrollTargetBehavior(.viewAligned)
+    }
+}
+
+struct CombinedListView: View {
+    let events: [EventModel]
+
+    var body: some View {
+        ScrollView(showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 12) {
+
+                if !events.isEmpty {
+                    EventListView(events: events)
+                }else {
+                    Text("No events today")
+                        .font(.footnote)
+                        .foregroundStyle(.gray)
+                }
+
+                if Defaults[.showReminders] && !RemindersManager.shared.reminders.isEmpty {
+                    ReminderListView()
+                }
+            }
+        }
     }
 }
 
