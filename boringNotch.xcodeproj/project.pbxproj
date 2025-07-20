@@ -64,6 +64,7 @@
 		14E9FEAA2C70BF610062E83F /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E9FEA92C70BF610062E83F /* DownloadView.swift */; };
 		14E9FEAE2C7325770062E83F /* Button+Bouncing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E9FEAD2C7325770062E83F /* Button+Bouncing.swift */; };
 		14FC6E502C7DED5600C7BEA5 /* DataTypes+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FC6E4F2C7DED5600C7BEA5 /* DataTypes+Extensions.swift */; };
+		468BD1012E2BB05800EAD450 /* RemindersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468BD0FF2E2BB05500EAD450 /* RemindersManager.swift */; };
 		46EDBE5E2E0F80C90045E914 /* NotchClipboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDBE5D2E0F80C60045E914 /* NotchClipboardView.swift */; };
 		46EDBE602E0F81620045E914 /* ClipboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDBE5F2E0F815F0045E914 /* ClipboardMonitor.swift */; };
 		507266DB2C908E2E00A2D00D /* HoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507266DA2C908E2E00A2D00D /* HoverButton.swift */; };
@@ -191,6 +192,7 @@
 		14E9FEA92C70BF610062E83F /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		14E9FEAD2C7325770062E83F /* Button+Bouncing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Bouncing.swift"; sourceTree = "<group>"; };
 		14FC6E4F2C7DED5600C7BEA5 /* DataTypes+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataTypes+Extensions.swift"; sourceTree = "<group>"; };
+		468BD0FF2E2BB05500EAD450 /* RemindersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersManager.swift; sourceTree = "<group>"; };
 		46EDBE5D2E0F80C60045E914 /* NotchClipboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchClipboardView.swift; sourceTree = "<group>"; };
 		46EDBE5F2E0F815F0045E914 /* ClipboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardMonitor.swift; sourceTree = "<group>"; };
 		507266DA2C908E2E00A2D00D /* HoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverButton.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		112FB72F2CCF12CC0015238C /* private */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = private; sourceTree = "<group>"; };
 		465952E02E1520E600EB348F /* Pomodoro */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Pomodoro; sourceTree = "<group>"; };
+		468BD0FE2E2BB02100EAD450 /* Reminders */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Reminders; sourceTree = "<group>"; };
 		46EDBE592E0F805B0045E914 /* Clipboard */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Clipboard; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -315,6 +318,7 @@
 		1471639B2C5D362F0068B555 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				468BD0FE2E2BB02100EAD450 /* Reminders */,
 				465952E02E1520E600EB348F /* Pomodoro */,
 				46EDBE592E0F805B0045E914 /* Clipboard */,
 				B141C23B2CA5F50900AC8CC8 /* Onboarding */,
@@ -341,6 +345,7 @@
 		147163B52C5D804B0068B555 /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				468BD0FF2E2BB05500EAD450 /* RemindersManager.swift */,
 				F38DE6472D8243E2008B5C6D /* BatteryActivityManager.swift */,
 				112FB7342CCF16F70015238C /* NotchSpaceManager.swift */,
 				147163992C5D35FF0068B555 /* MusicManager.swift */,
@@ -618,6 +623,7 @@
 			fileSystemSynchronizedGroups = (
 				112FB72F2CCF12CC0015238C /* private */,
 				465952E02E1520E600EB348F /* Pomodoro */,
+				468BD0FE2E2BB02100EAD450 /* Reminders */,
 				46EDBE592E0F805B0045E914 /* Clipboard */,
 			);
 			name = boringNotchPlus;
@@ -781,6 +787,7 @@
 				9A0887352C7AFF8E00C160EA /* TabSelectionView.swift in Sources */,
 				112FB7352CCF16F70015238C /* NotchSpaceManager.swift in Sources */,
 				14FC6E502C7DED5600C7BEA5 /* DataTypes+Extensions.swift in Sources */,
+				468BD1012E2BB05800EAD450 /* RemindersManager.swift in Sources */,
 				1153BD982D9881F900979FB0 /* AppleScriptHelper.swift in Sources */,
 				11CFC6612E097F6800748C80 /* PermissionsRequestView.swift in Sources */,
 				14D570D22C5F6C6A0011E668 /* BoringExtrasMenu.swift in Sources */,
@@ -947,6 +954,7 @@
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "This app uses the calendar to display your calendar events";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to display a live camera view";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSRemindersUsageDescription = "We use reminders to display your upcoming tasks.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -994,6 +1002,7 @@
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "This app uses the calendar to display your calendar events";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to display a live camera view";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSRemindersUsageDescription = "We use reminders to display your upcoming tasks.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
