@@ -232,7 +232,7 @@ final class BoringPomodoro: ObservableObject {
             if didCompleteCycle {
                 return "Focus complete! 🎉 Total: \(totalMinutesSpent) mins"
             } else if hasStarted {
-                return "Focus started!"
+                return "Focus!"
             } else {
                 return ""
             }
