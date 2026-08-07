@@ -6,7 +6,7 @@
 
 ## Download
 
-<a href="https://mustafaramx.gumroad.com/l/htcrch" target="_blank"><img width="200" src="https://www.adviksoft.com/blog/wp-content/uploads/2023/09/editor_download_mac.png" /></a>
+<a href="https://mustafaramx.com/apps/boringnotchplus/" target="_blank"><img width="200" src="https://www.adviksoft.com/blog/wp-content/uploads/2023/09/editor_download_mac.png" /></a>
 
 > \[!IMPORTANT]
 > This is a custom enhanced build of BoringNotch with new features and fixes. First time launching on macOS will show a security popup. Go to **Settings > Privacy & Security** and click **Open Anyway**. You only need to do this once.
@@ -15,9 +15,9 @@
 
 ## What is boringNotch+?
 
-**boringNotch+** is my enhanced fork of the original [BoringNotch](https://github.com/TheBoredTeam/boring.notch) app. It's a macOS menu bar utility that transforms the screen notch into something smart, dynamic, and personal. I added new widgets, polished existing ones, improved performance, and fixed annoying bugs.
+**boringNotch+** is my enhanced fork of the original [BoringNotch](https://github.com/mustafa-ramax/BoringNotchPlus) app. It's a macOS menu bar utility that transforms the screen notch into something smart, dynamic, and personal. I added new widgets, polished existing ones, improved performance, and fixed annoying bugs.
 
-### Live Preview ➡ [https://www.mustafaramx.com/post/make-your-mac-notch-useful-with-boringnotch](https://www.mustafaramx.com/post/make-your-mac-notch-useful-with-boringnotch)
+### Live Preview ➡ [https://mustafaramx.com/post/make-your-mac-notch-useful-with-boringnotch-download/](https://mustafaramx.com/post/make-your-mac-notch-useful-with-boringnotch-download/)
 
 ## Key Features (New & Improved)
 
@@ -99,17 +99,16 @@
 * Custom settings and behavior for real-world use
 * You can still build it yourself for free from the source
 
-If you found my work helpful, support me with a symbolic coffee ☕ to help keep the updates flowing. [https://buymeacoffee.com/mustafa.ramx](https://buymeacoffee.com/mustafa.ramx)
+If you found my work helpful, support me with a symbolic coffee ☕ to help keep the updates flowing. [https://buymeacoffee.com/mustafa.ramax](https://buymeacoffee.com/mustafa.ramax)
 
 ## Support & Community
 
 * 🚸 Website: [mustafaramx.com](https://mustafaramx.com)
-* 🌈 Get boringNotch+: [https://mustafaramx.gumroad.com/l/htcrch](https://mustafaramx.gumroad.com/l/htcrch)
-* 🎤 Join the Discord: [boringNotch Discord](https://discord.gg/GvYcYpAKTu)
+* 🌈 Get boringNotch+: [https://mustafaramx.com/apps/boringnotchplus/](https://mustafaramx.com/apps/boringnotchplus/)
 
 ## Credits
 
-Built on top of the amazing open-source [BoringNotch](https://github.com/TheBoredTeam/boring.notch) by the original team. My fork adds new features, but the heart remains open and collaborative.
+Built on top of the amazing open-source [BoringNotch](https://github.com/mustafa-ramax/BoringNotchPlus) by the original team. My fork adds new features, but the heart remains open and collaborative.
 
 Thanks to:
 
@@ -120,4 +119,4 @@ Thanks to:
 ---
 
 Made with ❤️ + SwiftUI in Sydney, by Mustafa Ramadan
-[https://buymeacoffee.com/mustafa.ramx](https://buymeacoffee.com/mustafa.ramx)
+[https://buymeacoffee.com/mustafa.ramax](https://buymeacoffee.com/mustafa.ramax)
